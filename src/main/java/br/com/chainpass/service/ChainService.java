@@ -2,7 +2,10 @@ package br.com.chainpass.service;
 
 import br.com.chainpass.domain.Chain;
 import br.com.chainpass.domain.dto.RequestChainDto;
+import br.com.chainpass.domain.dto.RequestPassDto;
+import br.com.chainpass.domain.dto.ResponseChainDto;
 import br.com.chainpass.repository.ChainRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,15 +24,28 @@ public class ChainService {
     List<Integer>numeros = new ArrayList<>();
 
     List<String>simbolos = new ArrayList<>();
+
+    public List<ResponseChainDto>listaSenhas(){
+        List<Chain> all = chainRepository.findAll();
+        return all.stream().map(ResponseChainDto::new).toList();
+
+    }
+
+    public ResponseChainDto detalhaSenhaPorId(Long id){
+        Chain chain = chainRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Password com este id não existe"));
+        ResponseChainDto chainDto = new ResponseChainDto(chain);
+        return chainDto;
+
+    }
     public void cadastrarPassword(RequestChainDto dados){
         Chain chain = new Chain(null, dados.senha(), LocalDateTime.now(), dados.descricao());
         chainRepository.save(chain);
 
     }
 
-    public void cadastrarPasswordRandom(String descricao){
+    public void cadastrarPasswordRandom(RequestPassDto dados){
         var senha = gerarPasswordRandom();
-        Chain chain = new Chain(null, senha, LocalDateTime.now(), descricao);
+        Chain chain = new Chain(null, senha, LocalDateTime.now(), dados.descricao());
         chainRepository.save(chain);
     }
 
