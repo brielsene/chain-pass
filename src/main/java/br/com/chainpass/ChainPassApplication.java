@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChainPassApplication implements CommandLineRunner {
+public class ChainPassApplication  {
 	@Autowired
 	private ChainService service;
 
@@ -15,9 +15,5 @@ public class ChainPassApplication implements CommandLineRunner {
 		SpringApplication.run(ChainPassApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		String senha = service.cadastrarPasswordRandom();
-		System.out.println(senha);
-	}
+
 }

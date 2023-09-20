@@ -1,12 +1,20 @@
 package br.com.chainpass.service;
 
+import br.com.chainpass.domain.Chain;
 import br.com.chainpass.domain.dto.RequestChainDto;
+import br.com.chainpass.repository.ChainRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
 public class ChainService {
+
+    @Autowired
+    private ChainRepository chainRepository;
+
 
     Random random = new Random();
     List<String>alfabeto = new ArrayList<>();
@@ -14,10 +22,18 @@ public class ChainService {
 
     List<String>simbolos = new ArrayList<>();
     public void cadastrarPassword(RequestChainDto dados){
+        Chain chain = new Chain(null, dados.senha(), LocalDateTime.now(), dados.descricao());
+        chainRepository.save(chain);
 
     }
 
-    public String cadastrarPasswordRandom(){
+    public void cadastrarPasswordRandom(String descricao){
+        var senha = gerarPasswordRandom();
+        Chain chain = new Chain(null, senha, LocalDateTime.now(), descricao);
+        chainRepository.save(chain);
+    }
+
+    public String gerarPasswordRandom(){
         String senha  = "";
         //setUps
         setUpAbcedario();

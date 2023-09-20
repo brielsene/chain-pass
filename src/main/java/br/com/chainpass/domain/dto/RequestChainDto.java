@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 public record RequestChainDto(
 
         String senha,
-        LocalDateTime data,
         String descricao
 
 ) {
