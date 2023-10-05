@@ -18,6 +18,13 @@ public class ChainService {
     @Autowired
     private ChainRepository chainRepository;
 
+    private final EmailService emailService;
+
+    @Autowired
+    public ChainService(EmailService emailService) {
+        this.emailService = emailService;
+    }
+
 
     Random random = new Random();
     List<String>alfabeto = new ArrayList<>();
@@ -47,6 +54,8 @@ public class ChainService {
         var senha = gerarPasswordRandom();
         Chain chain = new Chain(null, senha, LocalDateTime.now(), dados.descricao());
         chainRepository.save(chain);
+        String messageBody = "Olá, \n sua senha foi cadastrada com sucesso, e ela é: "+chain.getSenha();
+        emailService.sendMail(dados.email(), messageBody);
     }
 
     public String gerarPasswordRandom(){

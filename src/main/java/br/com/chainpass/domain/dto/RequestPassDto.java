@@ -1,4 +1,4 @@
 package br.com.chainpass.domain.dto;
 
-public record RequestPassDto (String descricao){
+public record RequestPassDto (String descricao, String email){
 }
