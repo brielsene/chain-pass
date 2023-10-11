@@ -1,8 +1,6 @@
-package br.com.chainpass.domain.dto;
+package br.com.chainpass.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
-
-import java.time.LocalDateTime;
 
 public record RequestChainDto(
         @NotBlank

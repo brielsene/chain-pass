@@ -1,6 +1,6 @@
 package br.com.chainpass.service;
 
-import br.com.chainpass.domain.dto.EmailDetails;
+import br.com.chainpass.model.dto.EmailDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

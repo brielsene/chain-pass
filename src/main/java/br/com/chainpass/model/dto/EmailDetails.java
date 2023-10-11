@@ -1,4 +1,4 @@
-package br.com.chainpass.domain.dto;
+package br.com.chainpass.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

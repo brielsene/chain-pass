@@ -1,6 +1,6 @@
-package br.com.chainpass.domain.dto;
+package br.com.chainpass.model.dto;
 
-import br.com.chainpass.domain.Chain;
+import br.com.chainpass.model.Chain;
 
 import java.time.LocalDateTime;
 

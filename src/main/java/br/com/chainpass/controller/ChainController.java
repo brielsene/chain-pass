@@ -1,11 +1,10 @@
 package br.com.chainpass.controller;
 
-import br.com.chainpass.domain.dto.RequestChainDto;
-import br.com.chainpass.domain.dto.RequestPassDto;
-import br.com.chainpass.domain.dto.ResponseChainDto;
+import br.com.chainpass.model.dto.RequestChainDto;
+import br.com.chainpass.model.dto.RequestPassDto;
+import br.com.chainpass.model.dto.ResponseChainDto;
 import br.com.chainpass.service.ChainService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

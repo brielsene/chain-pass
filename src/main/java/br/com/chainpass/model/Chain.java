@@ -1,10 +1,9 @@
-package br.com.chainpass.domain;
+package br.com.chainpass.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import java.time.LocalDateTime;
 

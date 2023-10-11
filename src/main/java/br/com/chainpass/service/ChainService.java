@@ -1,9 +1,9 @@
 package br.com.chainpass.service;
 
-import br.com.chainpass.domain.Chain;
-import br.com.chainpass.domain.dto.RequestChainDto;
-import br.com.chainpass.domain.dto.RequestPassDto;
-import br.com.chainpass.domain.dto.ResponseChainDto;
+import br.com.chainpass.model.Chain;
+import br.com.chainpass.model.dto.RequestChainDto;
+import br.com.chainpass.model.dto.RequestPassDto;
+import br.com.chainpass.model.dto.ResponseChainDto;
 import br.com.chainpass.repository.ChainRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
